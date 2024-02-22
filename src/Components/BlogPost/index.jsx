@@ -8,7 +8,7 @@ function BlogPost() {
 
     const blogpost = blogdata.find(post => post.slug === slug);
     const returnToBlog = () => {
-      navigate('/blog');
+      navigate('/blog', { replace: true });
       // navigate(-1);//vuelve al historial anterior
     };
 
