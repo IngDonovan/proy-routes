@@ -1,8 +1,8 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Menu } from './Menu';
-import { HomePage } from './HomePage';
-import { BlogPage } from './BlogPage';
-import { ProfilePage } from './ProfilePage';
+import { Menu } from '../Components/Menu';
+import { HomePage } from '../Pages/HomePage';
+import { BlogPage } from '../Pages/BlogPage';
+import { ProfilePage } from '../Pages/ProfilePage';
 import './App.css'
 
 function App() {
