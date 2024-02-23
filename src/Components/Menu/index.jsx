@@ -91,6 +91,16 @@ const routes2 = [
     to: '/profile',
     text: 'Profile',
   },
+  {
+    id:4,
+    to: '/login',
+    text: 'Login',
+  },
+  {
+    id:5,
+    to: '/logout',
+    text: 'Logout',
+  },
 ];
 
 export { Menu };
