@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useAuth } from '../../auth';
 import './Menu.css'
 
 function Menu() {
+  const auth = useAuth();
   return (
     <nav>
       <ul>
-      {routes2.map(route => (
+      {routes2.map(route => {
+      if (route.publicOnly && auth.user) return null;
+      if (route.private && !auth.user) return null;
+      return (
           <li key={route.id}>
             <NavLink
               
@@ -19,7 +24,8 @@ function Menu() {
               {route.text}
             </NavLink>
           </li>
-        ))}
+        );
+      })}
         {/* <li>
           <Link to="/">Home</Link>
         </li>
@@ -80,26 +86,32 @@ const routes2 = [
     id:1,
     to: '/',
     text: 'Home',
+    private:false,
   },
   {
     id:2,
     to: '/blog',
     text: 'Blog',
+    private:false,
   },
   {
     id:3,
     to: '/profile',
     text: 'Profile',
+    private:true,
   },
   {
     id:4,
     to: '/login',
     text: 'Login',
+    private:false,
+    publicOnly: true,
   },
   {
     id:5,
     to: '/logout',
     text: 'Logout',
+    private:true,
   },
 ];
 
