@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from '../auth';
 import { Menu } from '../Components/Menu';
 import { HomePage } from '../Pages/HomePage';
 import { BlogPage } from '../Pages/BlogPage';
@@ -14,20 +15,22 @@ function App() {
   return (
     <>
       <HashRouter>
-        <Menu />
-        <Routes>
-          <Route path='/' element={<HomePage />} /> 
+        <AuthProvider>
+          <Menu />
+          <Routes>
+            <Route path='/' element={<HomePage />} /> 
 
-          <Route path='/blog' element={<BlogPage />}>
-            <Route path='/blog/:slug' element={<BlogPost />} /> 
-          </Route>
+            <Route path='/blog' element={<BlogPage />}>
+              <Route path='/blog/:slug' element={<BlogPost />} /> 
+            </Route>
 
-          <Route path='/profile' element={<ProfilePage />} /> 
-          <Route path='/login' element={<LoginPage />} /> 
-          <Route path='/logout' element={<LogoutPage />} /> 
+            <Route path='/profile' element={<ProfilePage />} /> 
+            <Route path='/login' element={<LoginPage />} /> 
+            <Route path='/logout' element={<LogoutPage />} /> 
 
-          <Route path='*' element={<h1>Not Found</h1>} /> 
-        </Routes>
+            <Route path='*' element={<h1>Not Found</h1>} /> 
+          </Routes>
+        </AuthProvider>
       </HashRouter>
     </>
   )

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-
+import { useAuth } from '../../auth';
 
 function LoginPage() {
-  const [userName, setUserName] = useState('');
+  const auth = useAuth();
+  const [username, setUsername] = useState('');
   const login = (e) => {
     e.preventDefault();
-    console.log(userName);
+    auth.login({ username });
+    console.log(username);
   };
 
   return (
@@ -14,8 +16,8 @@ function LoginPage() {
       <form onSubmit={login}>
         <label>Escribe tu nombre de usuario</label>
         <input 
-          value={userName}
-          onChange={e => setUserName(e.target.value)}
+          value={username}
+          onChange={e => setUsername(e.target.value)}
         />
         <button type="submit">Entrar</button>
       </form>
