@@ -11,7 +11,9 @@ function BlogPost() {
 
     const blogpost = blogdata.find(post => post.slug === slug);
 
-    const canDelete = auth.user?.isAdmin || blogpost.author === auth.user?.username;
+    const canDelete = auth.user?.rol?.delete || blogpost.author === auth.user?.name;
+    const canEdit = auth.user?.rol?.write;
+
 
     const returnToBlog = () => {
       navigate('/blog', { replace: true });
@@ -22,6 +24,9 @@ function BlogPost() {
     <>
       <h2>{blogpost.title}</h2>
       <p>{blogpost.content}</p>
+      {canEdit && (
+        <button>Editar</button>
+      )}
       <p>{blogpost.author}</p>
       <button onClick={returnToBlog}>Volver al blog</button>
 

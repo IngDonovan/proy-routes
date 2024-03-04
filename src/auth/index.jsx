@@ -1,7 +1,48 @@
 import React, { createContext, useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const adminList = ['Itisval', 'RetaxMaster', 'freddier', 'donoDev'];
+// const adminList = ['Itisval', 'RetaxMaster', 'freddier', 'donoDev'];
+const roles = {
+    admin: {
+      write: true,
+      read: true,
+      delete: true,
+    },
+    editor: {
+      write: true,
+      read: true,
+      delete: false,
+    },
+    visitor: {
+      write: false,
+      read: true,
+      delete: false,
+    },
+  };
+
+const personalUsers = [
+    {
+        name:'donoDev',
+        rol:roles.admin,
+    },
+    {
+        name:'RetaxMaster',
+        rol:roles.admin,
+    },
+    {
+        name:'freddier',
+        rol:roles.editor,
+    },
+    {
+        name:'Willy',
+        rol:roles.editor,
+    },
+    {
+        name:'anony',
+        rol:roles.visitor,
+    },
+
+];
 
 const AuthContext = createContext();
 
@@ -11,10 +52,14 @@ function AuthProvider({ children }) {
 
 
     const login = ({ username }) => {
-        const isAdmin = adminList.find(admin => admin === username);
-        setUser({ username, isAdmin });
+        const rol = personalUsers.find((person) => person.name === username);
+        const isPersonalUser = (rol !== undefined);
+        isPersonalUser 
+            ? (setUser(rol))
+            : setUser({ name: username, role: roles.visitor});
         navigate('/profile');
     };
+
     const logout = () => {
         setUser(null);
         navigate('/');

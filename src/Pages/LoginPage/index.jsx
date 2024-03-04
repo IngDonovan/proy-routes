@@ -8,7 +8,7 @@ function LoginPage() {
   const login = (e) => {
     e.preventDefault();
     auth.login({ username });
-    console.log(username);
+    // console.log(username);
   };
   if (auth.user) {
     return <Navigate to="/profile"/>
