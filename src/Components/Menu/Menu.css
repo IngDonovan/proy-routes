@@ -1,12 +1,27 @@
 nav{
     display: flex;
-    padding: 12px;
+    padding: 15px;
+    box-shadow: 
+        10px 10px 20px rgba(103, 113, 255, 0.1), /* Sombra superior e izquierda (más clara) */
+        -10px -10px 20px rgba(0, 0, 0, 0.5); /* Sombra inferior y derecha (más oscura) */
+    margin-bottom: 25px;
 }
 
 ul{
+    width: 100vw;
     display: flex;
     list-style: none;
     align-items: center;
     justify-content: space-around;
-    width: 100vw;
+}
+
+@media screen and (min-width: 768px){
+    nav{
+        justify-content: end;
+    }
+
+    ul{
+        width: 300px;
+
+    }
 }
