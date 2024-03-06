@@ -2,7 +2,7 @@ nav{
     display: flex;
     padding: 15px;
     box-shadow: 
-        10px 10px 20px rgba(103, 113, 255, 0.1), /* Sombra superior e izquierda (más clara) */
+        10px 10px 20px #6771ff1a, /* Sombra superior e izquierda (más clara) */
         -10px -10px 20px rgba(0, 0, 0, 0.5); /* Sombra inferior y derecha (más oscura) */
     margin-bottom: 25px;
 }
@@ -13,6 +13,10 @@ ul{
     list-style: none;
     align-items: center;
     justify-content: space-around;
+}
+
+li{
+    font-size: 12px;
 }
 
 @media screen and (min-width: 768px){

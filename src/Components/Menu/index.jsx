@@ -16,7 +16,7 @@ function Menu() {
             <NavLink
               
               style={({ isActive }) => ({
-                color: isActive ? 'red' : 'blue',
+                color: isActive ? '#6771ff' : '#ccc',
               })}
               to={route.to}
               end

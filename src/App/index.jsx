@@ -19,11 +19,9 @@ function App() {
           <Menu />
           <Routes>
             <Route path='/' element={<HomePage />} /> 
-
             <Route path='/blog' element={<BlogPage />}>
               <Route path='/blog/:slug' element={<BlogPost />} /> 
             </Route>
-
             <Route 
               path='/profile' 
               element={
@@ -41,7 +39,6 @@ function App() {
                 </AuthRoute>
               } 
             /> 
-
             <Route path='*' element={<h1>Not Found</h1>} /> 
           </Routes>
         </AuthProvider>
