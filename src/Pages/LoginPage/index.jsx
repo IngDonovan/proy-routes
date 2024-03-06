@@ -18,7 +18,7 @@ function LoginPage() {
     <>
       <h1>LoginPage</h1> 
       <form onSubmit={login}>
-        <label>Escribe tu nombre de usuario</label>
+        <label>Escribe tu nombre de usuario:</label>
         <input 
           value={username}
           onChange={e => setUsername(e.target.value)}

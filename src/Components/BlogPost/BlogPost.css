@@ -1,0 +1,10 @@
+.cont-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.cont-section p{
+    font-size: 14px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { blogdata } from "../../data/blogdata";
 import { useAuth } from "../../auth";
+import './BlogPost.css';
 
 function BlogPost() {
   const navigate = useNavigate();
@@ -21,19 +22,19 @@ function BlogPost() {
     };
 
   return (
-    <>
+    <section className="cont-section">
       <h2>{blogpost.title}</h2>
       <p>{blogpost.content}</p>
       {canEdit && (
         <button>Editar</button>
       )}
-      <p>{blogpost.author}</p>
+      <p>Author: {blogpost.author}</p>
       <button onClick={returnToBlog}>Volver al blog</button>
 
       {canDelete && (
         <button>Eliminar Blogspot</button>
       )}
-    </>
+    </section>
   );
 }
 
