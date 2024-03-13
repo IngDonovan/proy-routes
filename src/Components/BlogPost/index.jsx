@@ -35,11 +35,14 @@ function BlogPost() {
         <button>Editar</button>
       )}
       <p>Author: {blogpost.author}</p>
-      <button onClick={returnToBlog}>Volver al blog</button>
-
       {canDelete && (
-        <button>Eliminar Blogspot</button>
+        <button
+          onClick={() => blogdata.deleteData(blogpost.title)}
+        >
+          Eliminar Blogspot
+        </button>
       )}
+      <button onClick={returnToBlog}>Volver al blog</button>
     </section>
   );
 }
