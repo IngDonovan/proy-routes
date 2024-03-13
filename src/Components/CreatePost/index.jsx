@@ -77,3 +77,5 @@ function CreatePost({setCreatePost}) {
         </form>
     )
 }
+
+export { CreatePost };

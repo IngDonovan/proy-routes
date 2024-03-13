@@ -1,3 +1,4 @@
+import { DataProvider } from '../data/dataContext';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider, AuthRoute } from '../auth';
 import { Menu } from '../Components/Menu';
@@ -15,33 +16,35 @@ function App() {
   return (
     <>
       <HashRouter>
-        <AuthProvider>
-          <Menu />
-          <Routes>
-            <Route path='/' element={<HomePage />} /> 
-            <Route path='/blog' element={<BlogPage />}>
-              <Route path='/blog/:slug' element={<BlogPost />} /> 
-            </Route>
-            <Route 
-              path='/profile' 
-              element={
-                <AuthRoute>
-                  <ProfilePage />
-                </AuthRoute>
-              } 
-            /> 
-            <Route path='/login' element={<LoginPage />} /> 
-            <Route 
-              path='/logout' 
-              element={
-                <AuthRoute>
-                  <LogoutPage />
-                </AuthRoute>
-              } 
-            /> 
-            <Route path='*' element={<h1>Not Found</h1>} /> 
-          </Routes>
-        </AuthProvider>
+        <DataProvider>
+          <AuthProvider>
+            <Menu />
+            <Routes>
+              <Route path='/' element={<HomePage />} /> 
+              <Route path='/blog' element={<BlogPage />}>
+                <Route path='/blog/:slug' element={<BlogPost />} /> 
+              </Route>
+              <Route 
+                path='/profile' 
+                element={
+                  <AuthRoute>
+                    <ProfilePage />
+                  </AuthRoute>
+                } 
+              /> 
+              <Route path='/login' element={<LoginPage />} /> 
+              <Route 
+                path='/logout' 
+                element={
+                  <AuthRoute>
+                    <LogoutPage />
+                  </AuthRoute>
+                } 
+              /> 
+              <Route path='*' element={<h1>Not Found</h1>} /> 
+            </Routes>
+          </AuthProvider>
+        </DataProvider>
       </HashRouter>
     </>
   )
