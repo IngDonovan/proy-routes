@@ -68,7 +68,10 @@ function DataProvider({children}) {
             approved: array[1].approved, 
         };
         const editedArray = data.map(e => e.title === array[0] ? editedElement : e );
+        console.log(editedArray);
+        
         setData([...editedArray]);
+        console.log(data);
         navigate('/blog')
     }
     const blogdata = {data, addData, deleteData, editData, changeStatus};

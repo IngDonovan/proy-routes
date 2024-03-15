@@ -17,7 +17,7 @@ function App() {
     <>
       <HashRouter>
         <DataProvider>
-          <AuthProvider>
+        <AuthProvider>
             <Menu />
             <Routes>
               <Route path='/' element={<HomePage />} /> 
@@ -43,7 +43,7 @@ function App() {
               /> 
               <Route path='*' element={<h1>Not Found</h1>} /> 
             </Routes>
-          </AuthProvider>
+        </AuthProvider>
         </DataProvider>
       </HashRouter>
     </>
