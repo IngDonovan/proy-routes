@@ -38,7 +38,7 @@ function BlogPost() {
           Eliminar Blogspot
         </button>
       )}
-      {canEdit && (
+      {/* {canEdit && (
         <button onClick={() => setEditPost(true)}>Editar Blog</button>
       )}
       {editPost && (
@@ -49,7 +49,7 @@ function BlogPost() {
         oldAuthor={blogpost.author} 
         oldApproved={blogpost.approved}
         />
-      )} 
+      )}  */}
       <button onClick={returnToBlog}>Volver al blog</button>
     </section>
   );

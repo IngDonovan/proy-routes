@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 function LoginPage() {
   const auth = useAuth();
   const [username, setUsername] = useState('');
+  
   const login = (e) => {
     e.preventDefault();
     auth.login({ username });

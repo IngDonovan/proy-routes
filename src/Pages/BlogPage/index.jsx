@@ -12,8 +12,8 @@ function BlogPage() {
     <>
       <h1>BlogPage</h1> 
       <ul className='container'>
-        {blogdata.data.map((post, index) => (
-          <BlogLink key={index} post={post}/>
+        {blogdata.data.map((post) => (
+          <BlogLink key={post.slug} post={post}/>
           ))}
       </ul>
       <Outlet />
@@ -26,7 +26,7 @@ function BlogPage() {
 function BlogLink({ post }) {
   return (
     <li>
-      <Link to={`/blog/${post.slug}`} >{post.title}</Link>
+      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
     </li>
   );
 }
